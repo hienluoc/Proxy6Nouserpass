@@ -61,9 +61,15 @@ upload_proxy() {
     echo "Password: ${PASS}"
 
 }
+
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
-        echo "usr$(random)/pass$(random)/$IP4/$port/$(gen64 $IP6)"
+        echo "a/a/$IP4/$port/$(gen64 $IP6)"
+    done
+}
+gen_data_test() {
+    seq $FIRST_PORT $LAST_PORT | while read port; do
+        echo "$IP4/$port/$(gen64 $IP6)"
     done
 }
 
